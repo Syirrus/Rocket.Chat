@@ -57,7 +57,7 @@ Meteor.methods({
 			apn: {
 				text: `@${user.username}:\n${TAPi18n.__('This_is_a_push_test_messsage')}`
 			},
-			sound: 'default',
+			sound: 'chime',
 			query: {
 				userId: user._id
 			}
