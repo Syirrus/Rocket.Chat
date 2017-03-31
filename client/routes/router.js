@@ -77,6 +77,22 @@ FlowRouter.route('/help', {
 	}
 });
 
+FlowRouter.route('/cancel', {
+	name: 'cancel',
+
+	action() {
+		BlazeLayout.render('main', {center: 'cancel'});
+	}
+});
+
+FlowRouter.route('/success', {
+	name: 'success',
+
+	action() {
+		BlazeLayout.render('main', {center: 'success'});
+	}
+});
+
 FlowRouter.route('/changeavatar', {
 	name: 'changeAvatar',
 
