@@ -1,9 +1,4 @@
 var CountLines;
-
-CountLines = void 0;
-
-CountLines = void 0;
-
 CountLines = [];
 
 Template.home.helpers({
@@ -48,17 +43,11 @@ Template.home.helpers({
   },
   countID: function(string) {
     var ele;
-    ele = void 0;
-    ele = void 0;
-    ele = void 0;
     CountLines.push('.' + string);
     ele = JSON.stringify(CountLines, null, 4);
   },
   directory: function() {
     var x;
-    x = void 0;
-    x = void 0;
-    x = void 0;
     x = RocketChat.models.Users.find({
       'customFields.isShowing': true
     }, {
@@ -73,27 +62,11 @@ Template.home.helpers({
 Template.home.events({
   'submit .loadHelpFrm': function(event) {
     var personNeedingHelpId;
-    personNeedingHelpId = void 0;
-    personNeedingHelpId = void 0;
-    personNeedingHelpId = void 0;
-    personNeedingHelpId = void 0;
     event.preventDefault();
     personNeedingHelpId = event.target.personNeedingHelpId;
   },
   'submit .dMessaging': function(event) {
     var data, uName, url, userIdOfPersonNeedingHelp;
-    data = void 0;
-    uName = void 0;
-    url = void 0;
-    userIdOfPersonNeedingHelp = void 0;
-    data = void 0;
-    uName = void 0;
-    url = void 0;
-    userIdOfPersonNeedingHelp = void 0;
-    data = void 0;
-    uName = void 0;
-    url = void 0;
-    userIdOfPersonNeedingHelp = void 0;
     event.preventDefault();
     uName = event.target.uName.value;
     userIdOfPersonNeedingHelp = event.target.personNeedingHelpId.value;
@@ -111,9 +84,6 @@ Template.home.events({
   },
   'click #show': function(e) {
     var showButton;
-    showButton = void 0;
-    showButton = void 0;
-    showButton = void 0;
     e.preventDefault();
     showButton = this._id;
     $('.' + showButton).popover();
@@ -122,8 +92,6 @@ Template.home.events({
 
 Template.home.onRendered(function() {
   var i;
-  i = void 0;
-  i = void 0;
   i = 0;
   while (i < CountLines.length) {
     this.$(CountLines[i]).popover();
