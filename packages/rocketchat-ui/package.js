@@ -72,7 +72,7 @@ Package.onUse(function(api) {
 	// TEXTAREA CURSOR MANAGEMENT
 	api.addFiles('client/lib/textarea-cursor/set-cursor-position.js', 'client');
 
-	// TEMPLATE FILES
+	// TEMPLATE FILES Syirrus - added help.html
 	api.addFiles('client/views/cmsPage.html', 'client');
 	api.addFiles('client/views/fxos.html', 'client');
 	api.addFiles('client/views/modal.html', 'client');
@@ -81,6 +81,7 @@ Package.onUse(function(api) {
 	api.addFiles('client/views/app/audioNotification.html', 'client');
 	api.addFiles('client/views/app/burger.html', 'client');
 	api.addFiles('client/views/app/home.html', 'client');
+	api.addFiles('client/views/app/help.html', 'client');
 	api.addFiles('client/views/app/notAuthorized.html', 'client');
 	api.addFiles('client/views/app/pageContainer.html', 'client');
 	api.addFiles('client/views/app/pageSettingsContainer.html', 'client');
@@ -93,12 +94,14 @@ Package.onUse(function(api) {
 	api.addFiles('client/views/app/videoCall/videoCall.html', 'client');
 	api.addFiles('client/views/app/photoswipe.html', 'client');
 
+  // TEMPLATE FILES Syirrus - added help.coffee
 	api.addFiles('client/views/cmsPage.coffee', 'client');
 	api.addFiles('client/views/fxos.coffee', 'client');
 	api.addFiles('client/views/modal.coffee', 'client');
 	api.addFiles('client/views/404/roomNotFound.coffee', 'client');
 	api.addFiles('client/views/app/burger.coffee', 'client');
 	api.addFiles('client/views/app/home.coffee', 'client');
+	api.addFiles('client/views/app/help.coffee', 'client');
 	api.addFiles('client/views/app/mobileMessageMenu.js', 'client');
 	api.addFiles('client/views/app/privateHistory.coffee', 'client');
 	api.addFiles('client/views/app/room.coffee', 'client');

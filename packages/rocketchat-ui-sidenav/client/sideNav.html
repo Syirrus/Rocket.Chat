@@ -8,8 +8,20 @@
 			<div class="unread-rooms background-primary-action-color color-primary-action-contrast top-unread-rooms hidden">
 				{{_ "More_unreads"}} <i class="icon-up-big"></i>
 			</div>
+
 			<div class="rooms-list" aria-label="{{_ "Channels"}}" role="region">
 				<div class="wrapper">
+
+					<h3 class="active">
+ 				 		Menu
+ 				 	</h3>
+
+					<div class="" style="padding-right: 10px; padding-left: 10px; padding-bottom: 10px; padding-top: 5px;">
+						<a href="/help" class="btn btn-danger btn-xs" role="button"><strong style="color:white;">&nbsp;<i style="color:white;" class="glyphicon glyphicon-bullhorn" aria-hidden="true"></i> I NEED HELP NOW</strong></a>
+							<div style="padding-bottom: 5px;"></div>
+						<a href="/home" class="btn btn-success btn-xs" role="button"><strong style="color:white;"><i style="color:white;" class="icon-user" aria-hidden="true"></i> EARN MONEY BY HELPING</strong></a>
+					</div>
+
 					{{> unreadRooms }}
 
 					{{#each roomType}}

@@ -39,7 +39,8 @@ class ModelUsers extends RocketChat.models._Base
 		return @findOne query, options
 
 
-	# FIND
+	# FIND Syirrus - WAS $in: ['online', 'away', 'busy'] Changed $in: ['online', 'away', 'busy', 'offline'] MAY SLOW DOWN
+	# findUsersEveryone - I added this for the directory listing.
 	findById: (userId) ->
 		query =
 			_id: userId
@@ -55,6 +56,14 @@ class ModelUsers extends RocketChat.models._Base
 
 		return @find query, options
 
+	findUsersEveryone: (options) ->
+		query =
+			username:
+				$exists: 1
+			status:
+				$in: ['online', 'away', 'busy', 'offline']
+
+		return @find query, options
 
 	findByUsername: (username, options) ->
 		query =
@@ -249,6 +258,7 @@ class ModelUsers extends RocketChat.models._Base
 
 	setCustomFields: (_id, fields) ->
 		values = {}
+		#console.log "API - for updating users - Syirrus"
 		for key, value of fields
 			values["customFields.#{key}"] = value
 

@@ -5,12 +5,13 @@ Blaze.registerHelper('pathFor', function(path, kw) {
 });
 
 BlazeLayout.setRoot('body');
-
+// Syirrus - Added this.register('everyUser', Meteor.subscribe('everyUser')); for directory
 FlowRouter.subscriptions = function() {
 	Tracker.autorun(() => {
 		if (Meteor.userId()) {
 			this.register('userData', Meteor.subscribe('userData'));
 			this.register('activeUsers', Meteor.subscribe('activeUsers'));
+			this.register('everyUser', Meteor.subscribe('everyUser'));
 		}
 	});
 };
@@ -65,6 +66,14 @@ FlowRouter.route('/home', {
 		} else {
 			BlazeLayout.render('main', {center: 'home'});
 		}
+	}
+});
+// Syirrus - For form route.
+FlowRouter.route('/help', {
+	name: 'help',
+
+	action() {
+		BlazeLayout.render('main', {center: 'help'});
 	}
 });
 

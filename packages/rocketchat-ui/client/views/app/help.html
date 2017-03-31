@@ -1,0 +1,103 @@
+<template name="help">
+	<section class="page-container page-home page-static content-background-color">
+		<header class="fixed-title content-background-color border-component-color">
+			{{> burger}}
+			<h2>
+				<span class="room-title">Help</span>
+			</h2>
+		</header>
+		<div class="content">
+
+<form class="form-horizontal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+
+
+
+						<center>
+							<button class="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							 <strong>INVEST IN YOUR RELATIONSHIP <i class="glyphicon glyphicon-menu-down" aria-hidden="true"></i></strong>
+							</button>
+						</center>
+
+						<div class="collapse" id="collapseExample">
+							<div class="well">
+								<p>
+									How much is your relationship worth? No matter what your problems are, someone on Clarapy
+									has gone through it. By offering compensation to the community you invest in your relationship & yourself. Your small token of your appreciation goes a long way and ensures
+									your situation answered promptly by multiple members on Clarapy.
+								  <br /><br />
+									The higher your offer, the more varying perspectives on situation and the more help
+									you will receive. When your post has concluded, you decide who receives your offer minus fees.
+									<br /><br />
+									So, is what's your relationship worth? Change you find on the ground? A meal at Taco Bell or more? You decide.
+								</p>
+							</div>
+						 </div>
+
+						</div>
+				  </div>
+
+
+				<div class="form-group">
+			    <label for="" class="col-sm-2 control-label">Category</label>
+			    <div class="col-sm-10">
+
+						<select class="form-control" name="category">
+						  <option value="abuse">Abuse (All Forms)</option>
+						  <option value="sex">Sexual Problems</option>
+              <option value="lgbtqi">LGBTQI</option>
+							<option value="ldr">LDR</option>
+							<option value="cheating">Cheating</option>
+							<option value="depression">Depression</option>
+							<option value="break">Breakups & Divorce</option>
+							<option value="dating">Dating Advice</option>
+							<option value="other">Other</option>
+						</select>
+
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">Situation</label>
+			    <div class="col-sm-10">
+			      <textarea class="form-control" name="situation" rows="3">{{errorSituation}}</textarea>
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+						<div class="alert alert-warning" role="alert"><em>By posting your offer, you agree to our <a href="/terms-of-service">terms of service</a>.</em></div>
+			    </div>
+			  </div>
+
+				<div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-10">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="4G8LWMMUGPHHA">
+					<input type="hidden" name="custom" value="{{userId}}"/>
+					<input type="hidden" name="userName" value="{{currentUser.username}}"/>
+
+					<table>
+					<tr><td><input type="hidden" name="on0" value="Your offer to pay for advice.">Your offer to pay for advice.</td></tr><tr><td><select name="os0">
+						<option value="0.50">Post for 2hr - $0.50 USD</option>
+						<option value="1.00">Post for 4hr - $1.00 USD</option>
+						<option value="2.00">Post for 8hr - $2.00 USD</option>
+						<option value="3.00">Post for 16hr - $3.00 USD</option>
+						<option value="4.00">Post for 24hr - $4.00 USD</option>
+						<option value="5.00">Post for 48hr - $5.00 USD</option>
+					</select> </td></tr>
+					</table>
+
+					<input type="hidden" name="currency_code" value="USD">
+					<input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_paynow_cc_144x47.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+
+			</div>
+		</div>
+
+			</form>
+
+		</div>
+	</section>
+</template>
