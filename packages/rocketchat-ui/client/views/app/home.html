@@ -52,7 +52,6 @@
 
 							<tr>
 
-
 								<td>
 									<form class="dMessaging">
 										 <input type="hidden" name="personNeedingHelpId" value="{{_id}}">
@@ -73,9 +72,13 @@
 									<button type="button" class="btn btn-success btn-xs"><strong>${{decimalRound customFields.willPay}}</strong></button>
 								</td>
 
-<td>
-	<span class="time"><small><em>{{time customFields.when customFields.willPay}}</em></small></span>
-</td>
+								<td>
+									<span class="time">
+										<small>
+											<em>{{time customFields.when customFields.willPay}}</em>
+										</small>
+									</span>
+								</td>
 
 							</tr>
 							{{/each}}
