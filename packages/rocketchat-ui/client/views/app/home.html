@@ -29,11 +29,12 @@
 				</button>
 			</center>
 				<div class="collapse" id="collapseExample">
-				  <div class="well">
+					<br />
+					<div class="well">
 						<p>
 							Earn money by helping out Clarapy community members! Be paid in Bitcoin or via PayPal minus fees (International user will be paid in Bitcoin).
 							<br /><br />
-							To get started, read the person's situation by clicking on the button below. You can respond directly but click on the "@username" button.
+							To get started, read the person's situation by clicking on the button below.
 							<br /><br />
 							Once the advice seeker's post has expired, the advice seeker will award a Clarapy member the payout if they provided the best advice.
 							You can see if you were awarded the payout by looking at the table below.
@@ -48,28 +49,38 @@
 					<table class="table">
 						<thead> <tr>  <th>Users</th> <th>Situation</th> <th>Payout</th> <th>Expires</th> </tr> </thead>
 						<tbody>
-							{{#each directory}}{{countID _id}}
+							{{#each directory}} <!-- {{countID _id}} -->
 
 							<tr>
 
 								<td>
-									<form class="dMessaging">
-										 <input type="hidden" name="personNeedingHelpId" value="{{_id}}">
-										 <input type="hidden" name="uName" value="{{username}}">
-											 <button type="submit" class="btn btn-primary btn-xs">
-												<strong>@{{fUppercase username}}</strong>
-											</button>
-									</form>
+										<span class="label label-default"><strong>@{{fUppercase username}}</strong></span>
 								</td>
 
 								<td>
+
+									<!--
 									<button id="show" type="button" class="btn btn-primary btn-xs {{_id}}" data-container="body" data-toggle="popover" data-placement="bottom" data-content="@{{fUppercase username}}: {{customFields.situation}}">
 									  <strong><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> {{fUppercase customFields.category}}</strong>
 									</button>
+									-->
+
+									<form class="read">
+										 <input type="hidden" name="personNeedingHelpId" value="{{_id}}">
+										 <input type="hidden" name="uName" value="{{username}}">
+										 <input type="hidden" name="situation" value="{{customFields.situation}}">
+										 <input type="hidden" name="category" value="{{customFields.category}}">
+										 <button type="submit" class="btn btn-primary btn-xs">
+												<strong>
+													<i class="glyphicon glyphicon-comment" aria-hidden="true"></i> {{fUppercase customFields.category}}
+												</strong>
+										 </button>
+									</form>
+
 								</td>
 
 								<td>
-									<button type="button" class="btn btn-success btn-xs"><strong>${{decimalRound customFields.willPay}}</strong></button>
+									<span class="label label-success"><strong>${{decimalRound customFields.willPay}}</strong></span>
 								</td>
 
 								<td>

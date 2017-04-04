@@ -1,5 +1,7 @@
+/*
 var CountLines;
 CountLines = [];
+*/
 
 Template.home.helpers({
   title: function() {
@@ -41,11 +43,13 @@ Template.home.helpers({
     }
     return moment(s, 'YYYY-MM-DDTHH:mm:ss.sssZ').add(hours, 'h').calendar();
   },
+  /*
   countID: function(string) {
     var ele;
     CountLines.push('.' + string);
     ele = JSON.stringify(CountLines, null, 4);
   },
+  */
   directory: function() {
     var x;
     x = RocketChat.models.Users.find({
@@ -60,11 +64,20 @@ Template.home.helpers({
 });
 
 Template.home.events({
+
   'submit .loadHelpFrm': function(event) {
     var personNeedingHelpId;
     event.preventDefault();
     personNeedingHelpId = event.target.personNeedingHelpId;
   },
+
+  'submit .read': function(event) {
+    event.preventDefault();
+    url = '/read/' + event.target.personNeedingHelpId.value;
+    //FlowRouter.go(url);
+    FlowRouter.redirect(url); 
+  },
+
   'submit .dMessaging': function(event) {
     var data, uName, url, userIdOfPersonNeedingHelp;
     event.preventDefault();
@@ -82,14 +95,16 @@ Template.home.events({
       return Meteor.call('dMessaging', uName, function() {});
     }
   },
+
   'click #show': function(e) {
     var showButton;
     e.preventDefault();
     showButton = this._id;
     $('.' + showButton).popover();
   }
-});
 
+});
+/*
 Template.home.onRendered(function() {
   var i;
   i = 0;
@@ -102,3 +117,4 @@ Template.home.onRendered(function() {
 Template.home.onDestroyed(function() {
   CountLines = [];
 });
+*/

@@ -85,6 +85,7 @@ Package.onUse(function(api) {
 	api.addFiles('client/views/app/help.html', 'client');
 	api.addFiles('client/views/app/cancel.html', 'client');
 	api.addFiles('client/views/app/success.html', 'client');
+	api.addFiles('client/views/app/read.html', 'client');
 	api.addFiles('client/views/app/notAuthorized.html', 'client');
 	api.addFiles('client/views/app/pageContainer.html', 'client');
 	api.addFiles('client/views/app/pageSettingsContainer.html', 'client');
@@ -103,6 +104,7 @@ Package.onUse(function(api) {
 	api.addFiles('client/views/app/help.js', 'client');
 	api.addFiles('client/views/app/cancel.js', 'client');
 	api.addFiles('client/views/app/success.js', 'client');
+	api.addFiles('client/views/app/read.js', 'client');
 	api.addFiles('client/views/cmsPage.js', 'client');
 	api.addFiles('client/views/fxos.js', 'client');
 	api.addFiles('client/views/modal.js', 'client');

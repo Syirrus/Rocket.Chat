@@ -1,0 +1,28 @@
+<template name="read">
+	<section class="page-container page-home page-static content-background-color">
+		<header class="fixed-title content-background-color border-component-color">
+			{{> burger}}
+			<h2>
+				<span class="room-title"> @{{data.username}} - [{{data.customFields.category}}]</span>
+			</h2>
+		</header>
+		<div class="content">
+
+      <div class="alert alert-info" role="alert">
+        {{data.customFields.situation}}
+
+        <br /><br />
+        <center>
+          <form class="dMessaging">
+             <input type="hidden" name="personNeedingHelpId" value="{{data._id}}">
+             <input type="hidden" name="uName" value="{{data.username}}">
+               <button type="submit" class="btn btn-primary btn-sm">
+                <strong>MESSAGE @{{data.username}}</strong>
+              </button>
+          </form>
+        </center>
+      </div>
+
+		</div>
+	</section>
+</template>

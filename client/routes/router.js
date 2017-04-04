@@ -77,6 +77,14 @@ FlowRouter.route('/help', {
 	}
 });
 
+FlowRouter.route('/read/:userId', {
+	name: 'read',
+
+	action(params, queryParams) {
+		BlazeLayout.render('main', {center: 'read'});
+	}
+});
+
 FlowRouter.route('/cancel', {
 	name: 'cancel',
 
