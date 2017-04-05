@@ -147,6 +147,38 @@ RocketChat.API.v1.addRoute('users.list', { authRequired: true }, {
 	}
 });
 
+// Syirrus used for CronJob
+RocketChat.API.v1.addRoute('users.listAll', { authRequired: false }, {
+	get() {
+		const { offset, count } = this.getPaginationItems();
+		const { sort, fields, query } = this.parseJsonQuery();
+
+		let fieldsToKeepFromRegularUsers;
+
+			fieldsToKeepFromRegularUsers = {
+			
+			};
+
+    syirrusQuery = { "customFields.isShowing": true };
+		const ourQuery = Object.assign(syirrusQuery, query);
+		const ourFields = Object.assign({}, fields, fieldsToKeepFromRegularUsers, RocketChat.API.v1.defaultFieldsToExclude);
+
+		const users = RocketChat.models.Users.find(ourQuery, {
+			sort: sort ? sort : { username: 1 },
+			skip: offset,
+			limit: count,
+			fields: ourFields
+		}).fetch();
+
+		return RocketChat.API.v1.success({
+			users,
+			count: users.length,
+			offset,
+			total: RocketChat.models.Users.find(ourQuery).count()
+		});
+	}
+});
+
 RocketChat.API.v1.addRoute('users.register', { authRequired: false }, {
 	post() {
 		if (this.userId) {
