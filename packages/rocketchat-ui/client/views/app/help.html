@@ -23,13 +23,7 @@
 							<div class="well">
 								<p>
 									How much is your relationship worth? No matter what your problems are, someone on Clarapy
-									has gone through it. By offering compensation to the community you invest in your relationship & yourself. Your small token of your appreciation goes a long way and ensures
-									your situation answered promptly by multiple members on Clarapy.
-								  <br /><br />
-									The higher your offer, the more varying perspectives on situation and the more help
-									you will receive. When your post has concluded, you decide who receives your offer minus fees.
-									<br /><br />
-									So, is what's your relationship worth? Change you find on the ground? A meal at Taco Bell or more? You decide.
+									has gone through it. By offering compensation to the community you're investing in your relationship & your happiness.	 The more you're willing to pay for help from the community, the more people will be willing to help.
 								</p>
 							</div>
 						 </div>
@@ -43,9 +37,9 @@
 			    <div class="col-sm-10">
 
 						<select class="form-control" name="category">
-						  <option value="abuse">Abuse (All Forms)</option>
-						  <option value="sex">Sexual Problems</option>
-              <option value="lgbtqi">LGBTQI</option>
+							<option value="abuse">Abuse (All Forms)</option>
+							<option value="sex">Sexual Problems</option>
+				      <option value="lgbtqi">LGBTQI</option>
 							<option value="ldr">LDR</option>
 							<option value="cheating">Cheating</option>
 							<option value="depression">Depression</option>
@@ -66,7 +60,12 @@
 
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-10">
-						<div class="alert alert-warning" role="alert"><em>By posting your offer, you agree to our <a href="/terms-of-service">terms of service</a>.</em></div>
+						<div class="alert alert-warning" role="alert">
+							<em>
+								By posting your offer, you agree to our <a href="/terms-of-service">terms of service</a>.
+								<br /><br />
+								Paying for a post guarantees that <strong>{{networkCount}}</strong> community members will receive a push notification immediately about your situation.
+							</em></div>
 			    </div>
 			  </div>
 
@@ -79,12 +78,13 @@
 
 					<table>
 					<tr><td><input type="hidden" name="on0" value="Your offer to pay for advice.">Your offer to pay for advice.</td></tr><tr><td><select name="os0">
-						<option value="0.50">Post for 2hr - $0.50 USD</option>
-						<option value="1.00">Post for 4hr - $1.00 USD</option>
-						<option value="2.00">Post for 8hr - $2.00 USD</option>
-						<option value="3.00">Post for 16hr - $3.00 USD</option>
-						<option value="4.00">Post for 24hr - $4.00 USD</option>
-						<option value="5.00">Post for 48hr - $5.00 USD</option>
+						<option value="0.00">FREE - No push notification.</option>
+						<!-- <option value="0.50">Post for 2hr - $0.50 USD</option> -->
+						<!-- <option value="1.00">Post for 4hr - $1.00 USD</option> -->
+						<!-- <option value="2.00">Post for 8hr - $2.00 USD</option> -->
+						<!-- <option value="3.00">Post for 16hr - $3.00 USD</option> -->
+						<!-- <option value="4.00">Post for 24hr - $4.00 USD</option> -->
+						<option value="5.00">$5.00 - {{networkCount}} users will be notified instantly.</option>
 					</select> </td></tr>
 					</table>
 

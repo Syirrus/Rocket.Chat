@@ -11,7 +11,7 @@ Meteor.methods({
               situation: data.situation,
               userName: data.userName,
               willPay: parseFloat(data.offer),
-              isShowing: false,
+              isShowing: data.isShowing,
               category: data.category,
               when: new Date().getTime()
            }  }

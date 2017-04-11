@@ -32,21 +32,39 @@ Template.help.events({
     situation = target.situation.value;
     offer = target.os0.value;
     selfUserId = Meteor.userId();
+
     data = {
       category: category,
       situation: situation,
       userName: userName,
       offer: offer,
+      isShowing: false,
       selfUserId: selfUserId
     };
+
     if (!situation || target.situation.value === '!!!! PLEASE DESCRIBE YOUR SITUATION !!!!') {
+
       url = '/help';
       event.preventDefault();
       target.situation.value = '!!!! PLEASE DESCRIBE YOUR SITUATION !!!!';
       return FlowRouter.go(url);
+
     } else {
-      console.log(data);
-      Meteor.call('addCustomFields', data, function() {});
+
+      // Check to see if user selected the free plan
+    	if(offer == 0){
+    		// Activate ad
+    		data.isShowing = true;
+    		url = '/home';
+    		event.preventDefault();
+    		Meteor.call('addCustomFields', data, function() {});
+    		return FlowRouter.go(url);
+
+    	} else {
+	        console.log(data);
+	        Meteor.call('addCustomFields', data, function() {});
+
+      }
     }
   }
 });

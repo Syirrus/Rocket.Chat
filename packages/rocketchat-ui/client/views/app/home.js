@@ -11,7 +11,12 @@ Template.home.helpers({
     return RocketChat.settings.get('Layout_Home_Body');
   },
   decimalRound: function(number) {
-    return parseFloat(Math.round(number * 100) / 100).toFixed(2);
+    if(number == 0){
+      return "None";
+    } else {
+      answer = parseFloat(Math.round(number * 100) / 100).toFixed(2);
+      return "$" + answer;
+    }
   },
   fUppercase: function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
@@ -41,7 +46,9 @@ Template.home.helpers({
         hours = 48;
         break;
     }
-    return moment(s, 'YYYY-MM-DDTHH:mm:ss.sssZ').add(hours, 'h').calendar();
+    //return moment(s, 'YYYY-MM-DDTHH:mm:ss.sssZ').add(hours, 'h').calendar();
+    return moment(s, 'YYYY-MM-DDTHH:mm:ss.sssZ').startOf('minute').fromNow();
+
   },
   /*
   countID: function(string) {
@@ -50,13 +57,13 @@ Template.home.helpers({
     ele = JSON.stringify(CountLines, null, 4);
   },
   */
-  directory: function() {
+  directory: function() { //'customFields.when': -1
     var x;
     x = RocketChat.models.Users.find({
       'customFields.isShowing': true
     }, {
       sort: {
-        'customFields.when': -1
+        'customFields.willPay': -1
       }
     });
     return x;
@@ -75,7 +82,7 @@ Template.home.events({
     event.preventDefault();
     url = '/read/' + event.target.personNeedingHelpId.value;
     //FlowRouter.go(url);
-    FlowRouter.redirect(url); 
+    FlowRouter.redirect(url);
   },
 
   'submit .dMessaging': function(event) {
