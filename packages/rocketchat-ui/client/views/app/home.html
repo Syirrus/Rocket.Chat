@@ -47,14 +47,24 @@
 				</div>
 
 					<table class="table">
-						<thead> <tr>  <th>Users</th> <th>Situation</th> <th>Payout</th> <th>When</th> </tr> </thead>
+						<thead> <tr>  <th>User</th> <th>Situation</th> <th>Payout</th> </tr> </thead>
 						<tbody>
 							{{#each directory}} <!-- {{countID _id}} -->
 
 							<tr>
 
 								<td>
-										<span class="label label-default"><strong>@{{fUppercase username}}</strong></span>
+									<span class="label label-default">
+										<strong>@{{fUppercase username}}</strong>
+									</span>
+									<br />
+									
+									<span class="time">
+										<small>
+											<em>Posted: {{time customFields.when customFields.willPay}}.</em>
+										</small>
+									</span>
+									
 								</td>
 
 								<td>
@@ -81,14 +91,6 @@
 
 								<td>
 									<span class="label label-success"><strong>{{decimalRound customFields.willPay}}</strong></span>
-								</td>
-
-								<td>
-									<span class="time">
-										<small>
-											<em>{{time customFields.when customFields.willPay}}.</em>
-										</small>
-									</span>
 								</td>
 
 							</tr>
