@@ -15,7 +15,7 @@ class PushNotification {
 		}
 		return hash;
 	}
-
+// Syirrus updated chime to chime.wav for iOS
 	send({ roomName, roomId, username, message, usersTo, payload }) {
 		let title;
 		if (roomName && roomName !== '') {
@@ -28,7 +28,7 @@ class PushNotification {
 		const config = {
 			from: 'push',
 			badge: 1,
-			sound: 'chime',
+			sound: 'chime.wav',
 			title: title,
 			text: message,
 			payload,

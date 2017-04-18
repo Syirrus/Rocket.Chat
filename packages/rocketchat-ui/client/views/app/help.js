@@ -19,6 +19,11 @@ Template.help.helpers({
     var q, x;
     x = RocketChat.models.Users.find({}).fetch();
     q = x.length;
+    // var deviceIsWindowsPhone = navigator.userAgent.indexOf("Windows Phone") >= 0;
+    // var deviceIsAndroid = navigator.userAgent.indexOf('Android') > 0 && !deviceIsWindowsPhone;
+  	// var deviceIsIOS = /iP(ad|hone|od)/.test(navigator.userAgent) && !deviceIsWindowsPhone;
+    // console.log("ANDROID:" + deviceIsAndroid);
+    // console.log("IOS:" + deviceIsIOS);
     return q;
   }
 });
