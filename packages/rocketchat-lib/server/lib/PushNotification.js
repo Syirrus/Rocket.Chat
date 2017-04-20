@@ -28,7 +28,7 @@ class PushNotification {
 		const config = {
 			from: 'push',
 			badge: 1,
-			sound: 'chime.wav',
+			sound: 'chime',
 			title: title,
 			text: message,
 			payload,
