@@ -38,6 +38,7 @@ Template.help.events({
     offer = target.os0.value;
     selfUserId = Meteor.userId();
 
+
     data = {
       category: category,
       situation: situation,
@@ -53,7 +54,7 @@ Template.help.events({
       event.preventDefault();
       target.situation.value = '!!!! PLEASE DESCRIBE YOUR SITUATION !!!!';
       return FlowRouter.go(url);
-
+    
     } else {
 
       // Check to see if user selected the free plan
