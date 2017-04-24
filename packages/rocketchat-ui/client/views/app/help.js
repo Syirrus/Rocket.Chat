@@ -31,13 +31,13 @@ Template.help.helpers({
 Template.help.events({
   'submit .form-horizontal': function(event) {
     var category, data, offer, selfUserId, situation, target, url, userName;
+
     target = event.target;
     category = target.category.value;
     userName = target.userName.value;
     situation = target.situation.value;
     offer = target.os0.value;
     selfUserId = Meteor.userId();
-
 
     data = {
       category: category,
@@ -48,13 +48,25 @@ Template.help.events({
       selfUserId: selfUserId
     };
 
-    if (!situation || target.situation.value === '!!!! PLEASE DESCRIBE YOUR SITUATION !!!!') {
+    var clearError = function (){
+      document.getElementById("errorSituation").innerHTML = "";
+      document.getElementById("errorSelect").innerHTML = "";
+    }
 
-      url = '/help';
+    if (!situation || situation.length <= 30) {
+
       event.preventDefault();
-      target.situation.value = '!!!! PLEASE DESCRIBE YOUR SITUATION !!!!';
-      return FlowRouter.go(url);
-    
+      document.getElementById("errorSituation").innerHTML = "<span class='label label-danger'>Please tell us your situation in 30 characters or more!</span>";
+
+      setTimeout(clearError, 6000);
+
+    } else if(target.os0.value === "na") {
+
+      event.preventDefault();
+      document.getElementById("errorSelect").innerHTML = "<span class='label label-danger'>Please select an option!</span>";
+
+      setTimeout(clearError, 6000);
+
     } else {
 
       // Check to see if user selected the free plan

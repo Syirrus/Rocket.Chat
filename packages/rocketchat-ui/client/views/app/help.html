@@ -31,7 +31,6 @@
 						</div>
 				  </div>
 
-
 				<div class="form-group">
 			    <label for="" class="col-sm-2 control-label">Category</label>
 			    <div class="col-sm-10">
@@ -52,9 +51,9 @@
 			  </div>
 
 			  <div class="form-group">
-			    <label for="inputEmail3" class="col-sm-2 control-label">Situation</label>
+			    <label for="inputEmail3" class="col-sm-2 control-label">Situation <div id="errorSituation"></div></label>
 			    <div class="col-sm-10">
-			      <textarea class="form-control" name="situation" rows="3">{{errorSituation}}</textarea>
+			      <textarea class="form-control" name="situation" rows="3"></textarea>
 			    </div>
 			  </div>
 
@@ -77,16 +76,19 @@
 					<input type="hidden" name="userName" value="{{currentUser.username}}"/>
 
 					<table>
-					<tr><td><input type="hidden" name="on0" value="Your offer to pay for advice.">Your offer to pay for advice.</td></tr><tr><td><select name="os0">
-						<option value="0.00">$0.00 [FREE] - No push notification.</option>
+					<tr><td><input type="hidden" name="on0" value="Your offer to pay for advice."><strong>Your Offer For Community Advice</strong> <div id="errorSelect"></div></td></tr>
+
+					<tr><td><select name="os0">
+						<option value="na">-- Select Your Offer --</option>
+						<option value="0.00">Give NOTHING for help - No push notification sent to the community.</option>
 						<!-- <option value="0.50">Post for 2hr - $0.50 USD</option> -->
 						<!-- <option value="1.00">Post for 4hr - $1.00 USD</option> -->
 						<!-- <option value="2.00">Post for 8hr - $2.00 USD</option> -->
 						<!-- <option value="3.00">Post for 16hr - $3.00 USD</option> -->
 						<!-- <option value="4.00">Post for 24hr - $4.00 USD</option> -->
-						<option value="5.00">$5.00 - {{networkCount}} users will be notified instantly.</option>
+						<option value="5.00">Give $5.00 - {{networkCount}} users will be notified instantly.</option>
 					</select> </td></tr>
-					</table>
+				  </table>
 
 					<input type="hidden" name="currency_code" value="USD">
 					<input type="image" src="images/button_post.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">

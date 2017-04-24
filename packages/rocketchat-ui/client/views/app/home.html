@@ -54,17 +54,30 @@
 							<tr>
 
 								<td>
-									<span class="label label-default">
-										<strong>@{{fUppercase username}}</strong>
-									</span>
-									<br />
-									
+
+
+
+									<form class="read">
+										 <input type="hidden" name="personNeedingHelpId" value="{{_id}}">
+										 <input type="hidden" name="uName" value="{{username}}">
+										 <input type="hidden" name="situation" value="{{customFields.situation}}">
+										 <input type="hidden" name="category" value="{{customFields.category}}">
+										 <button type="submit" class="label label-default">
+												<strong>
+ 													@{{fUppercase username}}
+												</strong>
+										 </button>
+									</form>
+
+
 									<span class="time">
 										<small>
 											<em>Posted: {{time customFields.when customFields.willPay}}.</em>
 										</small>
 									</span>
-									
+
+
+
 								</td>
 
 								<td>
@@ -82,7 +95,7 @@
 										 <input type="hidden" name="category" value="{{customFields.category}}">
 										 <button type="submit" class="btn btn-primary btn-xs">
 												<strong>
-													<i class="glyphicon glyphicon-comment" aria-hidden="true"></i> {{fUppercase customFields.category}}
+													<i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> {{fUppercase customFields.category}}
 												</strong>
 										 </button>
 									</form>

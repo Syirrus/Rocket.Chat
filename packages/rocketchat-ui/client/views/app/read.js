@@ -34,6 +34,12 @@ Template.read.events({
       return Meteor.call('dMessaging', uName, function() {});
     }
 
-  }
+  },
 
+  'click #back': function(e) {
+    e.preventDefault();
+    url = '/home';
+    FlowRouter.go(url);
+  }
+  
 });

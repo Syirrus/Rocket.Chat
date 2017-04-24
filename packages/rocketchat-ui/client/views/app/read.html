@@ -16,10 +16,14 @@
           <form class="dMessaging">
              <input type="hidden" name="personNeedingHelpId" value="{{data._id}}">
              <input type="hidden" name="uName" value="{{data.username}}">
-               <button type="submit" class="btn btn-primary btn-sm">
-                <strong>MESSAGE @{{data.username}}</strong>
+               <button type="submit" class="btn btn-primary btn-xs">
+                <strong><i class="glyphicon glyphicon-comment" aria-hidden="true"></i> MESSAGE @{{data.username}}</strong>
               </button>
           </form>
+					<br />
+					<button id="back" class="btn btn-danger btn-xs">
+					 <strong><i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i> Go Back</strong>
+				 </button>
         </center>
       </div>
 
