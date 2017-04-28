@@ -8,6 +8,37 @@
 		</header>
 		<div class="content">
 
+		{{#if anonymous}}
+
+		<div class="panel panel-default">
+		<div class="panel-body">
+
+					<center>
+						<button class="btn btn-success btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+							<strong>HOW CLARAPY WORKS <i class="glyphicon glyphicon-menu-down" aria-hidden="true"></i></strong>
+						</button>
+					</center>
+						<div class="collapse" id="collapseExample">
+							<br />
+							<div class="well">
+								<p>
+									Clarapy is a relationship advice platform that allows you to get help for your relationship concerns. Those who provide assistance can earn money for their participation. To get started, click on the #GENERAL button and then click "SIGN IN TO START TALKING" to get started.
+								</p>
+
+								<center>
+										<a class="btn btn-sm btn-danger" href="/channel/general" role="button">
+											<strong>#GENERAL</strong>
+										</a>
+								</center>
+
+							</div>
+						</div>
+					</div>
+			</div>
+
+
+		{{else}}
+
 			<div class="panel panel-default">
 			  <div class="panel-body">
 					<center>
@@ -110,9 +141,15 @@
 							{{/each}}
 							</tbody>
 						</table>
-
 				</div>
+
+		{{/if}}
+
 				{{{body}}}
 		</div>
 	</section>
+</template>
+
+<template name="anonymous">
+	anonymous person
 </template>

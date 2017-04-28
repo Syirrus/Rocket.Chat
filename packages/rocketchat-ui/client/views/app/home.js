@@ -50,6 +50,7 @@ Template.home.helpers({
     return moment(s, 'YYYY-MM-DDTHH:mm:ss.sssZ').startOf('minute').fromNow();
 
   },
+
   /*
   countID: function(string) {
     var ele;
@@ -57,6 +58,24 @@ Template.home.helpers({
     ele = JSON.stringify(CountLines, null, 4);
   },
   */
+
+  anonymous: function (){
+    if (Meteor.userId() == null){
+        x = true;
+      } else {
+        x = false;
+      }
+      return x;
+  },
+
+  showRoles: function (){
+      x = RocketChat.models.Users.find({"roles" : "anonymous"}).fetch()
+      y = JSON.stringify(x, null, 4)
+      console.log(y);
+      console.log(Meteor.userId());
+      return y
+  },
+
   directory: function() { //'customFields.when': -1
     var x;
     x = RocketChat.models.Users.find({
