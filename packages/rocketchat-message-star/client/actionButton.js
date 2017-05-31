@@ -15,10 +15,11 @@ Meteor.startup(function() {
 			});
 		},
 		validation(message) {
-			if (RocketChat.models.Subscriptions.findOne({ rid: message.rid }) == null) {
+			if (RocketChat.models.Subscriptions.findOne({ rid: message.rid }) == null && RocketChat.settings.get('Message_AllowStarring')) {
 				return false;
 			}
-			return RocketChat.settings.get('Message_AllowStarring') && !message.starred;
+
+			return !_.findWhere(message.starred, {_id: Meteor.userId()});
 		},
 		order: 10
 	});
@@ -37,10 +38,11 @@ Meteor.startup(function() {
 			});
 		},
 		validation(message) {
-			if (RocketChat.models.Subscriptions.findOne({ rid: message.rid }) == null) {
+			if (RocketChat.models.Subscriptions.findOne({ rid: message.rid }) == null && RocketChat.settings.get('Message_AllowStarring')) {
 				return false;
 			}
-			return RocketChat.settings.get('Message_AllowStarring') && message.starred;
+
+			return Boolean(_.findWhere(message.starred, {_id: Meteor.userId()}));
 		},
 		order: 10
 	});
@@ -68,7 +70,7 @@ Meteor.startup(function() {
 		i18nLabel: 'Permalink',
 		classes: 'clipboard',
 		context: ['starred'],
-		action() {
+		action(event) {
 			const message = this._arguments[1];
 			RocketChat.MessageAction.hideDropDown();
 			$(event.currentTarget).attr('data-clipboard-text', RocketChat.MessageAction.getPermaLink(message._id));

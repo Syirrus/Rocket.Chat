@@ -15,8 +15,9 @@ class PushNotification {
 		}
 		return hash;
 	}
-// Syirrus updated chime to chime.wav for iOS
-	send({ roomName, roomId, username, message, usersTo, payload }) {
+
+	send({ roomName, roomId, username, message, usersTo, payload, badge = 1 }) {
+
 		let title;
 		if (roomName && roomName !== '') {
 			title = `${ roomName }`;
@@ -27,9 +28,9 @@ class PushNotification {
 		const icon = RocketChat.settings.get('Assets_favicon_192').url || RocketChat.settings.get('Assets_favicon_192').defaultUrl;
 		const config = {
 			from: 'push',
-			badge: 1,
+			badge,
 			sound: 'chime',
-			title: title,
+			title,
 			text: message,
 			payload,
 			query: usersTo,
