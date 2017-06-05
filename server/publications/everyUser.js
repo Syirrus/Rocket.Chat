@@ -3,6 +3,8 @@ Meteor.publish('everyUser', function() {
 		return this.ready();
 	}
 // Syirrus customFields
+
+/*
 	return RocketChat.models.Users.findUsersEveryone({
 		fields: {
 			username: 1,
@@ -11,4 +13,6 @@ Meteor.publish('everyUser', function() {
 			customFields: 1
 		}
 	});
+
+	*/
 });
